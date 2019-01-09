@@ -60,3 +60,29 @@ table {
 .off-color {
     color: #7c7efb;
 }
+
+.tooltip {
+    &:hover {
+        cursor: help;
+        position: relative;
+
+        span {
+            font-size: 1vw;
+            display: block;
+            padding: .6rem;
+            white-space: pre-wrap;
+            width: 12vw;
+            z-index: 100;
+            background-color: #ededed;
+            color: #000;
+            border-radius: .6rem;
+            left: 2vw;
+            top: 4vw;
+            position: absolute;
+        }
+    }
+}
+
+.tooltip span {
+    display: none;
+}
