@@ -91,6 +91,16 @@ table {
     display: flex;
     align-items: center;
     justify-content: center; }
+  #calendar tbody td {
+    height: 5.2vw;
+    width: 5.2vw;
+    font-size: 0.8vw;
+    font-weight: 600;
+    vertical-align: top;
+    padding: 0.5vw;
+    transition: font-size .3s ease; }
+    #calendar tbody td:hover {
+      font-size: 1.2vw; }
   #calendar h3 {
     font-size: 2vw;
     font-weight: 700;
@@ -105,3 +115,9 @@ table {
     font-weight: 300;
     padding: .8rem 0 .5rem;
     border-bottom: 1px solid #fff !important; }
+  #calendar .icon {
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: opacity .4s; }
+    #calendar .icon:hover {
+      opacity: 0.6; }

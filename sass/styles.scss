@@ -62,6 +62,20 @@
         justify-content: center;
     }
 
+    tbody td {
+        height: 5.2vw;
+        width: 5.2vw;
+        font-size: 0.8vw;
+        font-weight: 600;
+        vertical-align: top;
+        padding: 0.5vw;
+        transition: font-size .3s ease;
+
+        &:hover {
+            font-size: 1.2vw;
+        }
+    }
+
     h3 {
         font-size: 2vw;
         font-weight: 700;
@@ -80,5 +94,15 @@
         font-weight: 300;
         padding: .8rem 0 .5rem;
         border-bottom: 1px solid #fff !important;
+    }
+
+    .icon {
+        font-size: 1.2vw;
+        cursor: pointer;
+        transition: opacity .4s;
+
+        &:hover {
+            opacity: 0.6;
+        }
     }
 }
