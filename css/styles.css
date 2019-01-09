@@ -22,6 +22,13 @@ table {
   padding: 7vh 0;
   border-collapse: collapse; }
 
+dialog {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: rgba(29, 29, 29, 0.85);
+  position: fixed; }
+
 .font {
   font-family: "Josefin Sans", sans-serif; }
 
