@@ -39,3 +39,46 @@
         }
     }
 }
+
+#calendar {
+    width: 66%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    #app-name-portrait {
+        display: none;
+    }
+
+    #theme-portrait {
+        display: none;
+    }
+
+    thead tr:first-child th div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        font-size: 2vw;
+        font-weight: 700;
+        padding: 0 2vw;
+        display: inline-block;
+    }
+
+    h4 {
+        padding: 0.8vh 0 0.2vh;
+        font-size: 1.4vw;
+        font-weight: 300;
+    }
+
+    .weekday {
+        font-size: 1.7vw;
+        font-weight: 300;
+        padding: .8rem 0 .5rem;
+        border-bottom: 1px solid #fff !important;
+    }
+}

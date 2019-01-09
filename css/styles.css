@@ -14,6 +14,14 @@ body {
   display: flex;
   align-items: stretch; }
 
+table, td, th {
+  border: 1px solid #232323; }
+
+table {
+  margin: 1.4rem auto;
+  padding: 7vh 0;
+  border-collapse: collapse; }
+
 .font {
   font-family: "Josefin Sans", sans-serif; }
 
@@ -67,3 +75,33 @@ body {
       background-color: #fff;
       opacity: 0.4;
       color: #000; }
+
+#calendar {
+  width: 66%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around; }
+  #calendar #app-name-portrait {
+    display: none; }
+  #calendar #theme-portrait {
+    display: none; }
+  #calendar thead tr:first-child th div {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  #calendar h3 {
+    font-size: 2vw;
+    font-weight: 700;
+    padding: 0 2vw;
+    display: inline-block; }
+  #calendar h4 {
+    padding: 0.8vh 0 0.2vh;
+    font-size: 1.4vw;
+    font-weight: 300; }
+  #calendar .weekday {
+    font-size: 1.7vw;
+    font-weight: 300;
+    padding: .8rem 0 .5rem;
+    border-bottom: 1px solid #fff !important; }

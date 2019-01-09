@@ -18,6 +18,16 @@ body {
     align-items: stretch;
 }
 
+table, td, th {
+    border: 1px solid #232323;
+}
+
+table {
+    margin: 1.4rem auto;
+    padding: 7vh 0;
+    border-collapse: collapse;
+}
+
 .font {
     font-family: "Josefin Sans", sans-serif;
 }
