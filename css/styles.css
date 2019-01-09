@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #fefdfd;
+  display: flex;
+  align-items: stretch; }
+
+.font {
+  font-family: "Josefin Sans", sans-serif; }
+
+.default-cursor {
+  cursor: default; }
+
+.center {
+  text-align: center; }
+
+.button {
+  cursor: pointer;
+  border-radius: 50rem;
+  outline: none;
+  margin: 0 auto;
+  background-color: transparent; }
+
+.color {
+  color: #fefdfd;
+  background-color: #1b19cd; }
+
+.border-color {
+  border-color: #1b19cd; }
+
+.off-color {
+  color: #7c7efb; }
