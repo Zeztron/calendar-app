@@ -2,6 +2,39 @@
 
     body {
         flex-direction: column;
-        
+    }
+
+    #current-day-info {
+        width: 100%;
+        min-height: initial;
+        height: 12vh;
+        padding: 1vw 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h2 {
+            font-size: 3vh;
+        }
+
+        h1 {
+            font-size: 4.6vh;
+        }
+
+        #app-name-landscape {
+            display: none;
+        }
+
+        #theme-landscape {
+            display: none;
+        }
+
+        .current-day-heading {
+            display: inline;
+            padding: 0;
+            margin: 0 .4rem;
+            font-size: 7vw;
+        }
     }
 }
