@@ -199,9 +199,56 @@ function translateToMonthName(month) {
     }
 }
 
+function fillInCalendar() {
+    updateCalendarDates();
+
+    var monthToFillIn = {
+
+    };
+
+    var previousMonthIndex;
+
+    monthData.forEach((month, i) => {
+        if(month.year === data.calendar.year && month.monthIndex === data.calendar.month) {
+            monthToFillIn = month;
+            previousMonthIndex = i - 1;
+            return;
+        }
+    });
+
+    let days = document.getElementsByTagName("td");
+    let currentMonthCount = 1;
+    let previousMonthCount = monthData[previousMonthIndex].amountOfDays - monthToFillIn.startingDay + 1;
+    let nextMonthCount = 1;
+
+    for(let i = 0; i < days.length; i++) {
+        if(monthToFillIn.startingDay <= i && currentMonthCount <= monthToFillIn.amountOfDays) {
+            // filling current month
+            days[i].innerHTML = currentMonthCount;
+            currentMonthCount++
+
+            
+        } else if(currentMonthCount <= monthToFillIn.amountOfDays) {
+            // filling previous month
+            days[i].classList.add("color");
+            days[i].innerHTML = previousMonthCount;
+            previousMonthCount++;
+
+
+        } else {
+            // filling next month
+            days[i].classList.add("color");
+            days[i].innerHTML = nextMonthCount;
+            nextMonthCount++;
+
+        }
+    }
+}
+
 function init() {
     updateCurrentDates();
     updateCalendarDates();
+    fillInCalendar();
 }
 
 init();
