@@ -220,20 +220,22 @@ function fillInCalendar() {
     let currentMonthCount = 1;
     let previousMonthCount = monthData[previousMonthIndex].amountOfDays - monthToFillIn.startingDay + 1;
     let nextMonthCount = 1;
+    removeCurrentDay();
 
     for(let i = 0; i < days.length; i++) {
         if(monthToFillIn.startingDay <= i && currentMonthCount <= monthToFillIn.amountOfDays) {
             // filling current month
             days[i].innerHTML = currentMonthCount;
+            if(currentMonthCount === data.currentDate.date && calendarIsCurrentMonth()) {
+                days[i].setAttribute("id", "current-day");
+            }
             currentMonthCount++
-
-            
+  
         } else if(currentMonthCount <= monthToFillIn.amountOfDays) {
             // filling previous month
             days[i].classList.add("color");
             days[i].innerHTML = previousMonthCount;
             previousMonthCount++;
-
 
         } else {
             // filling next month
@@ -242,6 +244,20 @@ function fillInCalendar() {
             nextMonthCount++;
 
         }
+    }
+}
+
+function removeCurrentDay() {
+    if(document.getElementById("current-day")) {
+        document.getElementById("current-day").removeAttribute("id");
+    }
+}
+
+function calendarIsCurrentMonth() {
+    if(data.currentDate.year === data.calendar.year && data.currentDate.month === data.calendar.month) {
+        return true;
+    } else {
+        return false;
     }
 }
 
