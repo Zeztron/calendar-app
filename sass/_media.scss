@@ -37,4 +37,54 @@
             font-size: 7vw;
         }
     }
+
+    #calendar {
+        width: 100vw;
+        display: block;
+        margin-top: 3.6vh;
+
+        #app-name-portrait {
+            display: block;
+            margin: 0;
+            font-size: 3.5vh;
+        }
+
+        h4 {
+            padding: 1.2vw 0 0.2vw;
+            font-size: 2.8vw;
+        }
+
+        h3 {
+            font-size: 3.8vw;
+            padding: 1.4vw 2vw 0.8vw;
+        }
+
+        .icon {
+            font-size: 2.9vw;
+        }
+
+        .weekday {
+            font-size: 2.5vw;
+        }
+
+        tbody td {
+            height: 9.8vw;
+            width: 9.8vw;
+            font-size: 1.6vw;
+            padding: 0.8vw;
+        }
+
+        img {
+            width: 7.4vw;
+            top: 0.7vw;
+        }
+
+        #theme-portrait {
+            display: block;
+            padding: 3vw 26.5vw;
+            font-size: 4vw;
+            margin-top: 2vh;
+            border: none;
+        }
+    }
 }
