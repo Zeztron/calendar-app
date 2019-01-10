@@ -221,11 +221,13 @@ function fillInCalendar() {
     let previousMonthCount = monthData[previousMonthIndex].amountOfDays - monthToFillIn.startingDay + 1;
     let nextMonthCount = 1;
     removeCurrentDay();
+    cleanCells();
 
     for(let i = 0; i < days.length; i++) {
         if(monthToFillIn.startingDay <= i && currentMonthCount <= monthToFillIn.amountOfDays) {
             // filling current month
             days[i].innerHTML = currentMonthCount;
+            // highlight the current day
             if(currentMonthCount === data.currentDate.date && calendarIsCurrentMonth()) {
                 days[i].setAttribute("id", "current-day");
             }
@@ -247,6 +249,10 @@ function fillInCalendar() {
     }
 }
 
+function cleanCells() {
+    removeCurrentDay();
+}
+
 function removeCurrentDay() {
     if(document.getElementById("current-day")) {
         document.getElementById("current-day").removeAttribute("id");
@@ -258,6 +264,38 @@ function calendarIsCurrentMonth() {
         return true;
     } else {
         return false;
+    }
+}
+
+function nextMonth() {
+    // console.log("next");
+    if(data.calendar.month != 11 || data.calendar.year === 2018) {
+        data.calendar.month++;
+    }
+    if(data.calendar.month >= 12) {
+        data.calendar.month = 0;
+        data.calendar.year++;
+    }
+    fillInCalendar();
+    
+}
+
+function previousMonth() {
+    // console.log("prev");
+    if (data.calendar.month != 11 || data.calendar.year === 2019) {
+        data.calendar.month--;
+    }
+    if (data.calendar.month <= -1) {
+        data.calendar.month = 11;
+        data.calendar.year--;
+    }
+    fillInCalendar();
+}
+
+document.onkeydown = function(e) {
+    switch(e.keyCode) {
+        case 37: previousMonth(); break;
+        case 39: nextMonth(); break;
     }
 }
 
