@@ -1,16 +1,22 @@
 // console.log("hi");
 
 var data = {
-    currentDate: {
-        day: "",
-        date: "",
-        month: "",
-        year: ""
-    },
-    calendar: {
-        month: "",
-        year: ""
-    }
+  currentModalPopup: 0,
+  currentColor: {
+    colorName: "blue",
+    color: "#1B19CD",
+    offColor: "#7C7EFB"
+  },
+  currentDate: {
+    day: "",
+    date: "",
+    month: "",
+    year: ""
+  },
+  calendar: {
+    month: "",
+    year: ""
+  }
 };
 
 var monthData = [
@@ -105,6 +111,71 @@ var monthData = [
     year: 2020
   }
 ];
+
+var colorData = [
+  {
+    name: "blue",
+    colorCode: "#1B19CD",
+    offColorCode: "#7C7EFB"
+  },
+  {
+    name: "red",
+    colorCode: "#D01212",
+    offColorCode: "#EEA19B"
+  },
+  {
+    name: "purple",
+    colorCode: "#721D89",
+    offColorCode: "#EBADFB"
+  },
+  {
+    name: "green",
+    colorCode: "#158348",
+    offColorCode: "#57C664"
+  },
+  {
+    name: "orange",
+    colorCode: "#EE742D",
+    offColorCode: "#F7A77A"
+  },
+  {
+    name: "deep-orange",
+    colorCode: "#F13C26",
+    offColorCode: "#F77D59"
+  },
+  {
+    name: "baby-blue",
+    colorCode: "#31B2FC",
+    offColorCode: "#3D8DD9"
+  },
+  {
+    name: "cerise",
+    colorCode: "#EA3D69",
+    offColorCode: "#FCBECC"
+  },
+  {
+    name: "lime",
+    colorCode: "#2ACC32",
+    offColorCode: "#4FFA4F"
+  },
+  {
+    name: "teal",
+    colorCode: "#2FCCB9",
+    offColorCode: "#7FE7E3"
+  },
+  {
+    name: "pink",
+    colorCode: "#F50D7A",
+    offColorCode: "#FFB9EA"
+  },
+  {
+    name: "black",
+    colorCode: "#212524",
+    offColorCode: "#687E7B"
+  }
+];
+
+var modal = document.getElementById("modal");
 
 function updateCurrentDates() {
     const today = new Date();
@@ -310,6 +381,15 @@ document.onkeydown = function(e) {
         case 37: previousMonth(); break;
         case 39: nextMonth(); break;
     }
+}
+
+
+function openModal(num) {
+    modal.open = true;
+}
+
+function closeModal() {
+    modal.open = false;
 }
 
 function init() {
