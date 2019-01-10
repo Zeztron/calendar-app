@@ -87,4 +87,34 @@
             border: none;
         }
     }
+
+    .popup {
+        width: 75vw;
+    }
+
+    #fav-color {
+        #color-options {
+            .color-option {
+                width: 12vw;
+            }
+
+            .checkmark {
+                font-size: 1.2vh;
+            }
+        }
+
+        #update-theme-button {
+            padding: .6rem 1.6rem;
+            border-width: .2rem;
+        }
+    }
+
+    #make-note {
+        
+        #edit-post-it {
+            width: 62vw;
+            height: 24vh;
+            font-size: 4vh;
+        }
+    }
 }
