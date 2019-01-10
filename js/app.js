@@ -40,6 +40,11 @@ function updateCurrentDates() {
     document.getElementById("current-date").innerHTML = addOrdinalIndicator(date);
 }
 
+function updateCalendarDates() {
+    document.getElementById("cal-year").innerHTML = data.calendar.year;
+    document.getElementById("cal-month").innerHTML = translateToMonthName(data.calendar.month);
+}
+
 function addOrdinalIndicator(date) {
     switch(date) {
         case 1:
@@ -101,5 +106,11 @@ function translateToMonthName(month) {
     }
 }
 
-updateCurrentDates();
+function init() {
+    updateCurrentDates();
+    updateCalendarDates();
+}
+
+init();
+
 
