@@ -13,6 +13,99 @@ var data = {
     }
 };
 
+var monthData = [
+  {
+    monthIndex: 10,
+    amountOfDays: 30,
+    startingDay: 4,
+    year: 2018
+  },
+  {
+    monthIndex: 11,
+    amountOfDays: 31,
+    startingDay: 6,
+    year: 2018
+  },
+  {
+    monthIndex: 0,
+    amountOfDays: 31,
+    startingDay: 2,
+    year: 2019
+  },
+  {
+    monthIndex: 1,
+    amountOfDays: 28,
+    startingDay: 5,
+    year: 2019
+  },
+  {
+    monthIndex: 2,
+    amountOfDays: 31,
+    startingDay: 5,
+    year: 2019
+  },
+  {
+    monthIndex: 3,
+    amountOfDays: 30,
+    startingDay: 1,
+    year: 2019
+  },
+  {
+    monthIndex: 4,
+    amountOfDays: 31,
+    startingDay: 3,
+    year: 2019
+  },
+  {
+    monthIndex: 5,
+    amountOfDays: 30,
+    startingDay: 6,
+    year: 2019
+  },
+  {
+    monthIndex: 6,
+    amountOfDays: 31,
+    startingDay: 1,
+    year: 2019
+  },
+  {
+    monthIndex: 7,
+    amountOfDays: 31,
+    startingDay: 4,
+    year: 2019
+  },
+  {
+    monthIndex: 8,
+    amountOfDays: 30,
+    startingDay: 7,
+    year: 2019
+  },
+  {
+    monthIndex: 9,
+    amountOfDays: 31,
+    startingDay: 2,
+    year: 2019
+  },
+  {
+    monthIndex: 10,
+    amountOfDays: 30,
+    startingDay: 5,
+    year: 2019
+  },
+  {
+    monthIndex: 11,
+    amountOfDays: 31,
+    startingDay: 0,
+    year: 2019
+  },
+  {
+    monthIndex: 0,
+    amountOfDays: 31,
+    startingDay: 4,
+    year: 2020
+  }
+];
+
 function updateCurrentDates() {
     const today = new Date();
     // console.log(today);
