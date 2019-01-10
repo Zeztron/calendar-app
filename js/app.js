@@ -221,7 +221,7 @@ function fillInCalendar() {
     let previousMonthCount = monthData[previousMonthIndex].amountOfDays - monthToFillIn.startingDay + 1;
     let nextMonthCount = 1;
     removeCurrentDay();
-    cleanCells();
+    cleanCells(days);
 
     for(let i = 0; i < days.length; i++) {
         if(monthToFillIn.startingDay <= i && currentMonthCount <= monthToFillIn.amountOfDays) {
@@ -249,8 +249,15 @@ function fillInCalendar() {
     }
 }
 
-function cleanCells() {
+function cleanCells(cells) {
     removeCurrentDay();
+
+    for(let i = 0; i < cells.length; i++) {
+        if(cells[i].classList.contains("color")) {
+            cells[i].classList.remove("color");
+        }
+    }
+
 }
 
 function removeCurrentDay() {
