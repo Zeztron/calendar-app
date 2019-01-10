@@ -237,6 +237,9 @@ function fillInCalendar() {
             // filling previous month
             days[i].classList.add("color");
             days[i].innerHTML = previousMonthCount;
+            if(previousMonthCount === monthData[previousMonthIndex].amountOfDays) {
+                days[i].classList.add("prev-month-last-day");
+            }
             previousMonthCount++;
 
         } else {
@@ -255,6 +258,9 @@ function cleanCells(cells) {
     for(let i = 0; i < cells.length; i++) {
         if(cells[i].classList.contains("color")) {
             cells[i].classList.remove("color");
+        }
+        if(cells[i].classList.contains("prev-month-last-day")) {
+            cells[i].classList.remove("prev-month-last-day");
         }
     }
 
