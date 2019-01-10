@@ -30,6 +30,9 @@ dialog {
   background-color: rgba(29, 29, 29, 0.85);
   position: fixed; }
 
+sup {
+  font-size: 50%; }
+
 .font {
   font-family: "Josefin Sans", sans-serif; }
 
