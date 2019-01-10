@@ -1,5 +1,6 @@
 :root {
     --color-off-white: #fefdfd;
+    --color-delete-red: #d71c1f;
 }
 
 * {
@@ -13,7 +14,7 @@ html {
 
 body {
     font-family: "Josefin Sans", sans-serif;
-    background-color: #fefdfd;
+    background-color: var(--color-off-white);
     display: flex;
     align-items: stretch;
 }

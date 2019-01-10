@@ -1,5 +1,6 @@
 :root {
-  --color-off-white: #fefdfd; }
+  --color-off-white: #fefdfd;
+  --color-delete-red: #d71c1f; }
 
 * {
   margin: 0;
@@ -10,7 +11,7 @@ html {
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  background-color: #fefdfd;
+  background-color: var(--color-off-white);
   display: flex;
   align-items: stretch; }
 
@@ -217,3 +218,41 @@ dialog {
   #fav-color #update-theme-button:hover {
     color: #fff;
     background-color: #222; }
+
+#make-note h4 {
+  margin: 3.2rem 0 1.8rem;
+  font-size: calc(1.6rem + 1.6vw);
+  font-weight: 300; }
+
+#make-note #edit-post-it {
+  height: 34rem;
+  width: 42vw;
+  font-size: 2.6vw;
+  padding: 1.4rem;
+  border: 1px solid #d8d8d8;
+  border-radius: 1rem;
+  outline: none;
+  resize: none; }
+
+#make-note .post-it-button {
+  display: inline;
+  margin: 2.4rem 0 2rem;
+  padding: 1rem 2.6rem;
+  font-size: calc(1.2rem + 0.6vw);
+  font-weight: 400; }
+
+#make-note #add-post-it {
+  border: 3px solid #222;
+  transition: all .4s; }
+  #make-note #add-post-it:hover {
+    color: #fff;
+    background-color: #222; }
+
+#make-note #delete-button {
+  border: 3px solid var(--color-delete-red);
+  background-color: var(--color-delete-red);
+  color: #fff;
+  transition: all .4s; }
+  #make-note #delete-button:hover {
+    color: var(--color-delete-red);
+    background-color: #fff; }
