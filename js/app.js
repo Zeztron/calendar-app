@@ -386,11 +386,31 @@ document.onkeydown = function(e) {
 
 function openModal(num) {
     modal.open = true;
+    modal.classList.add("fade-in");
+    switch(num) {
+        case 1: data.currentModalPopup = 1; break;
+        case 2: data.currentModalPopup = 2; break;
+    }
 }
 
 function closeModal() {
     modal.open = false;
 }
+
+modal.addEventListener("animationend", () => {
+    if (modal.classList.contains("fade-in")) {
+        modal.classList.remove("fade-in");
+        switch(data.currentModalPopup) {
+            case 1: break;
+            case 2: break;
+        }  
+    }
+
+    if (modal.classList.contains("fade-out")) {
+        modal.classList.remove("fade-out");
+        closeModal();
+    }
+});
 
 function init() {
     updateCurrentDates();

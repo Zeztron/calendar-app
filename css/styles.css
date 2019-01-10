@@ -347,3 +347,25 @@ sup {
     width: 62vw;
     height: 24vh;
     font-size: 4vh; } }
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out; }
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out; }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
