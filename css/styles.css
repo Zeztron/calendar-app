@@ -56,22 +56,23 @@ dialog {
 .off-color {
   color: #7c7efb; }
 
-.tooltip:hover {
-  cursor: help;
-  position: relative; }
-  .tooltip:hover span {
-    font-size: 1vw;
-    display: block;
-    padding: .6rem;
-    white-space: pre-wrap;
-    width: 12vw;
-    z-index: 100;
-    background-color: #ededed;
-    color: #000;
-    border-radius: .6rem;
-    left: 2vw;
-    top: 4vw;
-    position: absolute; }
+@media (orientation: landscape) {
+  .tooltip:hover {
+    cursor: help;
+    position: relative; }
+    .tooltip:hover span {
+      font-size: 1vw;
+      display: block;
+      padding: .6rem;
+      white-space: pre-wrap;
+      width: 12vw;
+      z-index: 100;
+      background-color: #ededed;
+      color: #000;
+      border-radius: .6rem;
+      left: 2vw;
+      top: 4vw;
+      position: absolute; } }
 
 .tooltip span {
   display: none; }
@@ -256,3 +257,7 @@ dialog {
   #make-note #delete-button:hover {
     color: var(--color-delete-red);
     background-color: #fff; }
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column; } }
