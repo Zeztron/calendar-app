@@ -318,9 +318,10 @@ function fillInCalendar() {
             days[i].classList.add("color");
             days[i].innerHTML = nextMonthCount;
             nextMonthCount++;
-
         }
     }
+
+    changeColor();
 }
 
 function cleanCells(cells) {
@@ -332,6 +333,9 @@ function cleanCells(cells) {
         }
         if(cells[i].classList.contains("prev-month-last-day")) {
             cells[i].classList.remove("prev-month-last-day");
+        }
+        if(cells[i].hasAttribute("style")) {
+          cells[i].removeAttribute("style");
         }
     }
 
@@ -438,6 +442,11 @@ function changeColor() {
   elements = document.getElementsByClassName("border-color");
   for (let i = 0; i < elements.length; i++) {
     elements[i].style.borderColor = data.currentColor.color;
+  }
+
+  elements = document.getElementsByClassName("off-color");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.color = data.currentColor.offColor;
   }
 }
 
