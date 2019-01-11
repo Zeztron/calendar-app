@@ -422,13 +422,15 @@ function renderFavColorPicker() {
 
 // This gets called when a fav color is clicked
 function updateColorData(name) {
-    colorData.forEach(function(arrayData) {
-        if(name === arrayData.name) {
-            data.currentColor.color = arrayData.colorCode;
-            data.currentColor.offColor = arrayData.offColorCode;
-            data.currentColor.name = arrayData.name;
-        }
-    });
+  removeCheckmarks();
+  colorData.forEach(function(arrayData) {
+      if(name === arrayData.name) {
+          data.currentColor.color = arrayData.colorCode;
+          data.currentColor.offColor = arrayData.offColorCode;
+          data.currentColor.colorName = arrayData.name;
+      }
+  });
+  addCheckmarkToCurrentColor();
 
     // console.log(data.currentColor.name);
 }
@@ -456,6 +458,21 @@ function updateColorClicked() {
   modal.classList.add("fade-out");
 }
 
+function removeCheckmarks() {
+  var checkmark = document.getElementsByClassName("checkmark");
+  for(let i = 0; i < checkmark.length; i++) {
+    checkmark[i].remove(checkmark)
+  }
+}
+
+function addCheckmarkToCurrentColor() {
+  var colorPreviews = document.getElementsByClassName("color-preview");
+  for(let i = 0; i < colorPreviews.length; i++) {
+    if(colorPreviews[i].id === data.currentColor.colorName) {
+      colorPreviews[i].innerHTML = "<i class='fas fa-check checkmark'></i>";
+    }
+  }
+}
 
 function init() {
     updateCurrentDates();
