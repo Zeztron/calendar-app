@@ -383,7 +383,6 @@ document.onkeydown = function(e) {
     }
 }
 
-
 function openModal(num) {
     modal.open = true;
     modal.classList.add("fade-in");
@@ -401,7 +400,7 @@ modal.addEventListener("animationend", () => {
     if (modal.classList.contains("fade-in")) {
         modal.classList.remove("fade-in");
         switch(data.currentModalPopup) {
-            case 1: break;
+            case 1: renderFavColorPicker(); break;
             case 2: break;
         }  
     }
@@ -411,6 +410,43 @@ modal.addEventListener("animationend", () => {
         closeModal();
     }
 });
+
+function renderFavColorPicker() {
+    var template = document.getElementById("fav-color");
+    template.removeAttribute("hidden");
+}
+
+// This gets called when a fav color is clicked
+function updateColorData(name) {
+    colorData.forEach(function(arrayData) {
+        if(name === arrayData.name) {
+            data.currentColor.color = arrayData.colorCode;
+            data.currentColor.offColor = arrayData.offColorCode;
+            data.currentColor.name = arrayData.name;
+        }
+    });
+
+    // console.log(data.currentColor.name);
+}
+
+function changeColor() {
+  var elements;
+  elements = document.getElementsByClassName("color");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundColor = data.currentColor.color;
+  }
+  elements = document.getElementsByClassName("border-color");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.borderColor = data.currentColor.color;
+  }
+}
+
+function updateColorClicked() {
+  changeColor();
+  document.getElementById("fav-color").setAttribute("hidden", "hidden");
+  modal.classList.add("fade-out");
+}
+
 
 function init() {
     updateCurrentDates();
