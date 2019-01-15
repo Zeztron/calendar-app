@@ -312,6 +312,7 @@ function fillInCalendar() {
             if(currentMonthCount === data.currentDate.date && calendarIsCurrentMonth()) {
                 days[i].setAttribute("id", "current-day");
             }
+            appendSpriteToCellAndTooltip(uid, days[i]);
             currentMonthCount++
   
         } else if(currentMonthCount <= monthToFillIn.amountOfDays) {
@@ -323,6 +324,7 @@ function fillInCalendar() {
             if(previousMonthCount === monthData[previousMonthIndex].amountOfDays) {
                 days[i].classList.add("prev-month-last-day");
             }
+            appendSpriteToCellAndTooltip(uid, days[i]);
             previousMonthCount++;
 
         } else {
@@ -331,6 +333,7 @@ function fillInCalendar() {
             days[i].innerHTML = nextMonthCount;
             uid = getUID(monthToFillIn.monthIndex + 1, monthToFillIn.year, nextMonthCount);
             days[i].setAttribute("data-uid", uid);
+            appendSpriteToCellAndTooltip(uid, days[i]);
             nextMonthCount++;
         }
     }
@@ -345,6 +348,16 @@ function getUID(month, year, day ) {
   }
 
   return month.toString() + year.toString() + day.toString();
+}
+
+function appendSpriteToCellAndTooltip(uid, element) {
+  for(let i = 0; i < postIts.length; i++) {
+    if(uid === postIts[i].id) {
+      element.innerHTML += `<img src="images/note${postIts[i].noteNum}.png alt="Post It Note"></img>`;
+      element.classList.add("tooltip");
+      element.innerHTML += `<span>${postIts[i].note}</span>`;
+    }
+  }
 }
 
 function cleanCells(cells) {
@@ -514,7 +527,7 @@ function submitPostIt() {
   document.getElementById("edit-post-it").value = "";
   let postIt = {
     id: data.postIts.currentPostItId,
-    num: 1,
+    noteNum: 1,
     note: value
   }
 
