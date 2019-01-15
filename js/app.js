@@ -1,5 +1,4 @@
 // console.log("hi");
-
 var data = {
   currentModalPopup: 0,
   currentColor: {
@@ -183,6 +182,7 @@ var colorData = [
 var modal = document.getElementById("modal");
 
 var postIts = [];
+
 
 function updateCurrentDates() {
     const today = new Date();
@@ -369,6 +369,9 @@ function cleanCells(cells) {
         }
         if(cells[i].classList.contains("prev-month-last-day")) {
             cells[i].classList.remove("prev-month-last-day");
+        }
+        if (cells[i].classList.contains("tooltip")) {
+          cells[i].classList.remove("tooltip");
         }
         if(cells[i].hasAttribute("style")) {
           cells[i].removeAttribute("style");
