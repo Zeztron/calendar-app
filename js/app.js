@@ -563,6 +563,20 @@ function currentDayHasNote(uid) {
   data.postIts.currentPostItNew = true;
 }
 
+function deleteNote() {
+  document.getElementById("edit-post-it").value = "";
+  let indexToDelete;
+  if(!data.postIts.currentPostItNew) {
+    indexToDelete = data.postIts.currentPostItIndex;
+  }
+  if(indexToDelete != undefined) {
+    postIts.splice(indexToDelete, 1);
+  }
+  fillInCalendar();
+  document.getElementById("make-note").setAttribute("hidden", "hidden");
+  modal.classList.add("fade-out");
+}
+
 function init() {
     updateCurrentDates();
     updateCalendarDates();
