@@ -177,6 +177,8 @@ var colorData = [
 
 var modal = document.getElementById("modal");
 
+var postIts = [];
+
 function updateCurrentDates() {
     const today = new Date();
     // console.log(today);
@@ -291,6 +293,7 @@ function fillInCalendar() {
     let currentMonthCount = 1;
     let previousMonthCount = monthData[previousMonthIndex].amountOfDays - monthToFillIn.startingDay + 1;
     let nextMonthCount = 1;
+    let uid;
     removeCurrentDay();
     cleanCells(days);
 
@@ -298,6 +301,8 @@ function fillInCalendar() {
         if(monthToFillIn.startingDay <= i && currentMonthCount <= monthToFillIn.amountOfDays) {
             // filling current month
             days[i].innerHTML = currentMonthCount;
+            uid = getUID(monthToFillIn.monthIndex, monthToFillIn.year, currentMonthCount);
+            days[i].setAttribute("data-id", uid);
             // highlight the current day
             if(currentMonthCount === data.currentDate.date && calendarIsCurrentMonth()) {
                 days[i].setAttribute("id", "current-day");
@@ -308,6 +313,8 @@ function fillInCalendar() {
             // filling previous month
             days[i].classList.add("color");
             days[i].innerHTML = previousMonthCount;
+            uid = getUID(monthData[previousMonthIndex].monthIndex, monthData[previousMonthIndex].year, previousMonthCount);
+            days[i].setAttribute("data-id", uid);
             if(previousMonthCount === monthData[previousMonthIndex].amountOfDays) {
                 days[i].classList.add("prev-month-last-day");
             }
@@ -317,11 +324,22 @@ function fillInCalendar() {
             // filling next month
             days[i].classList.add("color");
             days[i].innerHTML = nextMonthCount;
+            uid = getUID(monthToFillIn.monthIndex + 1, monthToFillIn.year, nextMonthCount);
+            days[i].setAttribute("data-id", uid);
             nextMonthCount++;
         }
     }
 
     changeColor();
+}
+
+function getUID(month, year, day ) {
+  if(month === 12) {
+    month = 0;
+    year++;
+  }
+
+  return month.toString() + year.toString() + day.toString();
 }
 
 function cleanCells(cells) {
