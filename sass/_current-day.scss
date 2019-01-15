@@ -1,5 +1,5 @@
 #current-day-info {
-    width: 34%;
+    width: 38%;
     min-height: 100vh;
 
     #app-name-landscape {
@@ -35,5 +35,11 @@
             opacity: 0.4;
             color: #000;
         }
+    }
+}
+
+@media (orientation: landscape) {
+    #current-day-info {
+        clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
     }
 }

@@ -19,8 +19,24 @@ body {
     align-items: stretch;
 }
 
+.background-text {
+    position: absolute;
+    opacity: 0.22;
+    font-size: 20vw;
+    z-index: -1;
+    margin: 0;
+    top: 50%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+}
+
+h4.background-text {
+    top: 62%;
+    font-size: 7vw;
+}
+
 table, td, th {
-    border: 1px solid #232323;
+    border: 1px solid #9c9c9c;
 }
 
 table {

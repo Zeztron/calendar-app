@@ -4,6 +4,10 @@
         flex-direction: column;
     }
 
+    .background-text {
+        display: none;
+    }
+
     #current-day-info {
         width: 100%;
         min-height: initial;
