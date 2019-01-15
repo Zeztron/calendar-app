@@ -353,7 +353,7 @@ function getUID(month, year, day ) {
 function appendSpriteToCellAndTooltip(uid, element) {
   for(let i = 0; i < postIts.length; i++) {
     if(uid === postIts[i].id) {
-      element.innerHTML += `<img src="images/note${postIts[i].noteNum}.png alt="Post It Note"></img>`;
+      element.innerHTML += `<img src="images/note${postIts[i].noteNum}.png" alt="Post It Note"></img>`;
       element.classList.add("tooltip");
       element.innerHTML += `<span>${postIts[i].note}</span>`;
     }
@@ -525,9 +525,10 @@ function submitPostIt() {
   const value = document.getElementById("edit-post-it").value;
   // console.log(value);
   document.getElementById("edit-post-it").value = "";
+  let randomNumber = getRandom(1, 6);
   let postIt = {
     id: data.postIts.currentPostItId,
-    noteNum: 1,
+    noteNum: randomNumber,
     note: value
   }
 
@@ -535,6 +536,14 @@ function submitPostIt() {
     postIts.push(postIt);
   }
 
+  fillInCalendar();
+  document.getElementById("make-note").setAttribute("hidden", "hidden");
+  modal.classList.add("fade-out");
+
+}
+
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function init() {
