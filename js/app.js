@@ -302,7 +302,7 @@ function fillInCalendar() {
             // filling current month
             days[i].innerHTML = currentMonthCount;
             uid = getUID(monthToFillIn.monthIndex, monthToFillIn.year, currentMonthCount);
-            days[i].setAttribute("data-id", uid);
+            days[i].setAttribute("data-uid", uid);
             // highlight the current day
             if(currentMonthCount === data.currentDate.date && calendarIsCurrentMonth()) {
                 days[i].setAttribute("id", "current-day");
@@ -314,7 +314,7 @@ function fillInCalendar() {
             days[i].classList.add("color");
             days[i].innerHTML = previousMonthCount;
             uid = getUID(monthData[previousMonthIndex].monthIndex, monthData[previousMonthIndex].year, previousMonthCount);
-            days[i].setAttribute("data-id", uid);
+            days[i].setAttribute("data-uid", uid);
             if(previousMonthCount === monthData[previousMonthIndex].amountOfDays) {
                 days[i].classList.add("prev-month-last-day");
             }
@@ -325,7 +325,7 @@ function fillInCalendar() {
             days[i].classList.add("color");
             days[i].innerHTML = nextMonthCount;
             uid = getUID(monthToFillIn.monthIndex + 1, monthToFillIn.year, nextMonthCount);
-            days[i].setAttribute("data-id", uid);
+            days[i].setAttribute("data-uid", uid);
             nextMonthCount++;
         }
     }
@@ -423,7 +423,7 @@ modal.addEventListener("animationend", () => {
         modal.classList.remove("fade-in");
         switch(data.currentModalPopup) {
             case 1: renderFavColorPicker(); break;
-            case 2: break;
+            case 2: openPostIt(); break;
         }  
     }
 
@@ -490,6 +490,11 @@ function addCheckmarkToCurrentColor() {
       colorPreviews[i].innerHTML = "<i class='fas fa-check checkmark'></i>";
     }
   }
+}
+
+// Post it
+function dayClicked(element) {
+  console.log(element.dataset.uid);
 }
 
 function init() {
