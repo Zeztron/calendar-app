@@ -16,6 +16,11 @@ var data = {
   calendar: {
     month: "",
     year: ""
+  },
+  postIts: {
+    currentPostItId: 0,
+    currentPostItIndex: 0,
+    currentPostItNew: true
   }
 };
 
@@ -494,7 +499,29 @@ function addCheckmarkToCurrentColor() {
 
 // Post it
 function dayClicked(element) {
-  console.log(element.dataset.uid);
+  data.postIts.currentPostItId = element.dataset.uid;
+  openModal(2);
+}
+
+function openPostIt() {
+  document.getElementById("make-note").removeAttribute("hidden");
+}
+
+function submitPostIt() {
+  // console.log("Submit");
+  const value = document.getElementById("edit-post-it").value;
+  // console.log(value);
+  document.getElementById("edit-post-it").value = "";
+  let postIt = {
+    id: data.postIts.currentPostItId,
+    num: 1,
+    note: value
+  }
+
+  if(data.postIts.currentPostItNew) {
+    postIts.push(postIt);
+  }
+
 }
 
 function init() {
