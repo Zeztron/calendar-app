@@ -513,11 +513,15 @@ function addCheckmarkToCurrentColor() {
 // Post it
 function dayClicked(element) {
   data.postIts.currentPostItId = element.dataset.uid;
+  currentDayHasNote(element.dataset.uid);
   openModal(2);
 }
 
 function openPostIt() {
   document.getElementById("make-note").removeAttribute("hidden");
+  if(!data.postIts.currentPostItNew) {  
+    document.getElementById("edit-post-it").value = postIts[data.postIts.currentPostItIndex].note;
+  }
 }
 
 function submitPostIt() {
@@ -534,6 +538,8 @@ function submitPostIt() {
 
   if(data.postIts.currentPostItNew) {
     postIts.push(postIt);
+  } else {
+    postIts[data.postIts.currentPostItIndex].note = postIt.note;
   }
 
   fillInCalendar();
@@ -544,6 +550,17 @@ function submitPostIt() {
 
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function currentDayHasNote(uid) {
+  for(let i = 0; i < postIts.length; i++) {
+    if(postIts[i].id === uid) {
+      data.postIts.currentPostItNew = false;
+      data.postIts.currentPostItIndex = i;
+      return;
+    }
+  }
+  data.postIts.currentPostItNew = true;
 }
 
 function init() {
